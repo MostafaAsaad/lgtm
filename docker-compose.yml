@@ -81,6 +81,7 @@ services:
       - GF_SERVER_SERVE_FROM_SUB_PATH=true
       - GF_SERVER_DOMAIN=localhost
       - GF_SERVER_PROTOCOL=http
+      - GF_SERVER_FROM_EMAIL=noreply@localhost
     networks:
       - monitoring
     depends_on:
