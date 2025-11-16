@@ -1,0 +1,32 @@
+version: '3.8'
+
+name: test-server
+
+services:
+  node-exporter:
+    image: prom/node-exporter:latest
+    container_name: test-server-node-exporter
+    restart: unless-stopped
+    command:
+      - '--path.procfs=/host/proc'
+      - '--path.sysfs=/host/sys'
+      - '--path.rootfs=/rootfs'
+      - '--collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)($$|/)'
+      - '--collector.netclass.ignored-devices=^(veth.*|docker.*|br-.*)$'
+      - '--collector.netdev.device-exclude=^(veth.*|docker.*|br-.*)$'
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+      - /dev:/host/dev:ro
+    networks:
+      - monitoring
+    labels:
+      - "monitoring=enabled"
+      - "exporter=node-exporter"
+
+networks:
+  monitoring:
+    external: true
+    name: monitor-stack_monitoring
+

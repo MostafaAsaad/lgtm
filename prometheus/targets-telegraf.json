@@ -1,18 +1,20 @@
 [
   {
-    "targets": ["test-server-telegraf:9273"],
+    "targets": ["nginx-proxy:80"],
     "labels": {
       "server_name": "test-server",
       "server_ip": "localhost",
-      "environment": "test"
+      "environment": "test",
+      "__metrics_path__": "/metrics/telegraf/test-server"
     }
   },
   {
-    "targets": ["mac-pc-telegraf:9273"],
+    "targets": ["nginx-proxy:80"],
     "labels": {
       "server_name": "mac-pc",
       "server_ip": "localhost",
-      "environment": "local"
+      "environment": "local",
+      "__metrics_path__": "/metrics/telegraf/mac-pc"
     }
   }
 ]
