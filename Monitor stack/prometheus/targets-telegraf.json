@@ -1,0 +1,11 @@
+[
+  {
+    "targets": ["test-server-telegraf:9273"],
+    "labels": {
+      "server_name": "test-server",
+      "server_ip": "localhost",
+      "environment": "test"
+    }
+  }
+]
+

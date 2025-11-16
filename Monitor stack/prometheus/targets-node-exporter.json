@@ -1,0 +1,12 @@
+[
+  {
+    "targets": ["test-server-node-exporter:9100"],
+    "labels": {
+      "server_name": "test-server",
+      "server_ip": "localhost",
+      "environment": "test",
+      "exporter_type": "node-exporter"
+    }
+  }
+]
+
