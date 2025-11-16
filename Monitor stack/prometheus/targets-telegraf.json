@@ -6,6 +6,14 @@
       "server_ip": "localhost",
       "environment": "test"
     }
+  },
+  {
+    "targets": ["mac-pc-telegraf:9273"],
+    "labels": {
+      "server_name": "mac-pc",
+      "server_ip": "localhost",
+      "environment": "local"
+    }
   }
 ]
 
