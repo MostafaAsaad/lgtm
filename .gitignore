@@ -5,9 +5,9 @@ storage/
 !storage/grafana/
 !storage/grafana/dashboards/
 !storage/grafana/dashboards/**/*.json
+!storage/grafana/grafana.db
 
 # Ignore Grafana database and other generated files
-storage/grafana/*.db
 storage/grafana/*.db-shm
 storage/grafana/*.db-wal
 storage/grafana/sessions/
