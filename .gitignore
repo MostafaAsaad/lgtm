@@ -1,24 +1,23 @@
 # Storage directories - ignore all data
-Monitor stack/storage/
+storage/
 
 # But keep Grafana dashboards (un-ignore)
-!Monitor stack/storage/grafana/
-!Monitor stack/storage/grafana/dashboards/
-!Monitor stack/storage/grafana/dashboards/*.json
+!storage/grafana/
+!storage/grafana/dashboards/
+!storage/grafana/dashboards/**/*.json
 
 # Ignore Grafana database and other generated files
-Monitor stack/storage/grafana/*.db
-Monitor stack/storage/grafana/*.db-shm
-Monitor stack/storage/grafana/*.db-wal
-Monitor stack/storage/grafana/sessions/
-Monitor stack/storage/grafana/png/
-Monitor stack/storage/grafana/alerting/
-Monitor stack/storage/grafana/csv/
-Monitor stack/storage/grafana/plugins/
+storage/grafana/*.db
+storage/grafana/*.db-shm
+storage/grafana/*.db-wal
+storage/grafana/sessions/
+storage/grafana/png/
+storage/grafana/alerting/
+storage/grafana/csv/
+storage/grafana/plugins/
 
-# Prometheus data
-Monitor stack/storage/prometheus/
+# Prometheus data (chunks, WAL, etc.)
+storage/prometheus/
 
-# Loki data
-Monitor stack/storage/loki/
-
+# Loki data (chunks, WAL, etc.)
+storage/loki/
