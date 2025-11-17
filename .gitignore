@@ -16,8 +16,18 @@ storage/grafana/alerting/
 storage/grafana/csv/
 storage/grafana/plugins/
 
-# Prometheus data (chunks, WAL, etc.)
-storage/prometheus/
+# Prometheus data - ignore all chunks, WAL, and database files
+storage/prometheus/chunks_head/
+storage/prometheus/wal/
+storage/prometheus/*/
+storage/prometheus/lock
+storage/prometheus/queries.active
 
-# Loki data (chunks, WAL, etc.)
-storage/loki/
+# Loki data - ignore all chunks, WAL, and database files
+storage/loki/chunks/
+storage/loki/wal/
+storage/loki/boltdb-shipper-active/
+storage/loki/boltdb-shipper-cache/
+storage/loki/compactor/
+storage/loki/rules/
+
