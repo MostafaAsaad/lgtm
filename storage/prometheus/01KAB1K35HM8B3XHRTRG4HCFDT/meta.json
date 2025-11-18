@@ -1,0 +1,17 @@
+{
+	"ulid": "01KAB1K35HM8B3XHRTRG4HCFDT",
+	"minTime": 1763450100000,
+	"maxTime": 1763451000000,
+	"stats": {
+		"numSamples": 106039,
+		"numSeries": 1864,
+		"numChunks": 2478
+	},
+	"compaction": {
+		"level": 1,
+		"sources": [
+			"01KAB1K35HM8B3XHRTRG4HCFDT"
+		]
+	},
+	"version": 1
+}

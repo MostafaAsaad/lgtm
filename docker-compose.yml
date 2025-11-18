@@ -27,7 +27,7 @@ services:
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
       - ./prometheus/targets-telegraf.json:/etc/prometheus/targets-telegraf.json:ro
       - ./prometheus/targets-node-exporter.json:/etc/prometheus/targets-node-exporter.json:ro
-      - ./storage/prometheus:/prometheus
+      - prometheus-data:/prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--storage.tsdb.path=/prometheus'
@@ -47,9 +47,11 @@ services:
   thanos-sidecar:
     image: quay.io/thanos/thanos:v0.32.5
     container_name: thanos-sidecar
+    user: root
     restart: unless-stopped
     volumes:
-      - ./storage/prometheus:/var/prometheus:ro
+      # Needs native filesystem features (hard links) -> use named volume shared with Prometheus
+      - prometheus-data:/var/prometheus
       - ./thanos/thanos-config.yml:/etc/thanos/storage.yml:ro
     command:
       - sidecar
@@ -172,4 +174,7 @@ services:
 networks:
   monitoring:
     driver: bridge
+
+volumes:
+  prometheus-data:
 

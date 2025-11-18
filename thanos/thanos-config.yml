@@ -5,7 +5,8 @@ config:
   region: ap-south-1
   access_key: AKIAVLDYJGKOCGW3BNXP
   secret_key: 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
-  # prefix: thanos/MOH/  # Not supported in this Thanos version - use bucket path structure instead
+  # prefix field not supported in Thanos v0.32.5
+  # To organize data in folders, consider using a dedicated S3 bucket or upgrading Thanos
   insecure: false
   signature_version2: false
   put_user_metadata: {}

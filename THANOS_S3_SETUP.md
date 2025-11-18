@@ -232,3 +232,4 @@ Add Thanos Query as a Prometheus datasource in Grafana:
 - This will give you access to both recent (Prometheus) and historical (S3) data
 
 
+

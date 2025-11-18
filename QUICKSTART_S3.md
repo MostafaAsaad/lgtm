@@ -147,3 +147,4 @@ docker logs loki
 - [ ] S3 bucket contains data (check AWS Console)
 
 
+

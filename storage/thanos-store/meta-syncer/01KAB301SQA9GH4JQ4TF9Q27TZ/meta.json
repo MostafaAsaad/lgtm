@@ -1,0 +1,45 @@
+{
+	"ulid": "01KAB301SQA9GH4JQ4TF9Q27TZ",
+	"minTime": 1763454967515,
+	"maxTime": 1763455500000,
+	"stats": {
+		"numSamples": 44091,
+		"numSeries": 1885,
+		"numChunks": 1885
+	},
+	"compaction": {
+		"level": 1,
+		"sources": [
+			"01KAB301SQA9GH4JQ4TF9Q27TZ"
+		]
+	},
+	"version": 1,
+	"thanos": {
+		"labels": {
+			"cluster": "monitoring",
+			"environment": "production",
+			"prometheus_replica": "prometheus-0"
+		},
+		"downsample": {
+			"resolution": 0
+		},
+		"source": "sidecar",
+		"segment_files": [
+			"000001"
+		],
+		"files": [
+			{
+				"rel_path": "chunks/000001",
+				"size_bytes": 156766
+			},
+			{
+				"rel_path": "index",
+				"size_bytes": 207561
+			},
+			{
+				"rel_path": "meta.json"
+			}
+		],
+		"index_stats": {}
+	}
+}
