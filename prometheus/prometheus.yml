@@ -4,6 +4,7 @@ global:
   external_labels:
     cluster: 'monitoring'
     environment: 'production'
+    prometheus_replica: 'prometheus-0'
 
 # rule_files:
 #   - 'alerts/*.yml'

@@ -8,9 +8,14 @@ common:
   instance_addr: 127.0.0.1
   path_prefix: /loki
   storage:
-    filesystem:
-      chunks_directory: /loki/chunks
-      rules_directory: /loki/rules
+    s3:
+      bucketnames: adeaobserv
+      endpoint: s3.ap-south-1.amazonaws.com
+      region: ap-south-1
+      access_key_id: AKIAVLDYJGKOCGW3BNXP
+      secret_access_key: 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
+      insecure: false
+      s3forcepathstyle: false
   replication_factor: 1
   ring:
     kvstore:
@@ -19,12 +24,20 @@ common:
 schema_config:
   configs:
     - from: 2020-10-24
-      store: boltdb-shipper
-      object_store: filesystem
-      schema: v11
+      store: tsdb
+      object_store: s3
+      schema: v13
       index:
-        prefix: index_
+        prefix: loki/MOH/index_
         period: 24h
+
+compactor:
+  working_directory: /loki/compactor
+  shared_store: s3
+  compaction_interval: 10m
+  retention_enabled: true
+  retention_delete_delay: 2h
+  retention_delete_worker_count: 150
 
 ruler:
   alertmanager_url: http://localhost:9093

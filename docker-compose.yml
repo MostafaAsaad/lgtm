@@ -1,5 +1,3 @@
-version: '3.8'
-
 name: monitor-stack
 
 services:
@@ -18,6 +16,7 @@ services:
       - prometheus
       - grafana
       - loki
+      - thanos-query
 
   prometheus:
     image: prom/prometheus:v2.48.0
@@ -34,10 +33,82 @@ services:
       - '--storage.tsdb.path=/prometheus'
       - '--web.console.libraries=/etc/prometheus/console_libraries'
       - '--web.console.templates=/etc/prometheus/consoles'
-      - '--storage.tsdb.retention.time=30d'
+      # Retention removed - Thanos handles long-term storage
+      # - '--storage.tsdb.retention.time=30d'
+      # Temporarily set to 15m for testing - change back to 2h for production
+      - '--storage.tsdb.min-block-duration=15m'
+      - '--storage.tsdb.max-block-duration=15m'
       - '--web.enable-lifecycle'
     networks:
       - monitoring
+
+  # Thanos Sidecar - uploads Prometheus data to S3
+  thanos-sidecar:
+    image: quay.io/thanos/thanos:v0.32.5
+    container_name: thanos-sidecar
+    restart: unless-stopped
+    volumes:
+      - ./storage/prometheus:/var/prometheus:ro
+      - ./thanos/thanos-config.yml:/etc/thanos/storage.yml:ro
+    command:
+      - sidecar
+      - --prometheus.url=http://prometheus:9090
+      - --tsdb.path=/var/prometheus
+      - --objstore.config-file=/etc/thanos/storage.yml
+      - --shipper.upload-compacted
+    environment:
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_REGION=${AWS_REGION:-us-east-1}
+      - S3_BUCKET=${S3_BUCKET:-observability}
+      - S3_ENDPOINT=${S3_ENDPOINT:-s3.amazonaws.com}
+    networks:
+      - monitoring
+    depends_on:
+      - prometheus
+
+  # Thanos Store - queries historical data from S3
+  thanos-store:
+    image: quay.io/thanos/thanos:v0.32.5
+    container_name: thanos-store
+    restart: unless-stopped
+    volumes:
+      - ./thanos/thanos-config.yml:/etc/thanos/storage.yml:ro
+      - ./storage/thanos-store:/var/thanos/store
+    command:
+      - store
+      - --objstore.config-file=/etc/thanos/storage.yml
+      - --data-dir=/var/thanos/store
+      - --grpc-address=0.0.0.0:10901
+      - --http-address=0.0.0.0:10902
+      - --index-cache-size=250MB
+      - --sync-block-duration=5m
+    environment:
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_REGION=${AWS_REGION:-us-east-1}
+      - S3_BUCKET=${S3_BUCKET:-observability}
+      - S3_ENDPOINT=${S3_ENDPOINT:-s3.amazonaws.com}
+    networks:
+      - monitoring
+
+  # Thanos Query - aggregates Prometheus + S3 queries
+  thanos-query:
+    image: quay.io/thanos/thanos:v0.32.5
+    container_name: thanos-query
+    restart: unless-stopped
+    command:
+      - query
+      - --http-address=0.0.0.0:10903
+      - --query.replica-label=prometheus_replica
+      - --store=thanos-sidecar:10901
+      - --store=thanos-store:10901
+    networks:
+      - monitoring
+    depends_on:
+      - prometheus
+      - thanos-sidecar
+      - thanos-store
 
   loki:
     image: grafana/loki:2.9.2
@@ -48,6 +119,12 @@ services:
       - ./loki/loki-config.yml:/etc/loki/local-config.yaml:ro
       - ./storage/loki:/loki
     command: -config.file=/etc/loki/local-config.yaml
+    environment:
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_REGION=${AWS_REGION:-us-east-1}
+      - S3_BUCKET=${S3_BUCKET:-observability}
+      - S3_ENDPOINT=${S3_ENDPOINT:-s3.amazonaws.com}
     networks:
       - monitoring
 
@@ -57,8 +134,9 @@ services:
     restart: unless-stopped
     volumes:
       - ./loki/promtail-config.yml:/etc/promtail/config.yml:ro
-      - /var/log:/var/log:ro
-      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      # Linux-only paths - comment out on Windows
+      # - /var/log:/var/log:ro
+      # - /var/lib/docker/containers:/var/lib/docker/containers:ro
     command: -config.file=/etc/promtail/config.yml
     networks:
       - monitoring

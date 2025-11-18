@@ -31,3 +31,9 @@ storage/loki/boltdb-shipper-cache/
 storage/loki/compactor/
 storage/loki/rules/
 
+# Thanos Store - local cache (data is in S3)
+storage/thanos-store/
+
+# Environment files with credentials
+.env
+
