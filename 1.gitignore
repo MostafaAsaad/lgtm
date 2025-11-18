@@ -17,11 +17,11 @@ storage/grafana/csv/
 storage/grafana/plugins/
 
 # Prometheus data - ignore all chunks, WAL, and database files
-#storage/prometheus/chunks_head/
-#storage/prometheus/wal/
-#storage/prometheus/*/
-#storage/prometheus/lock
-#storage/prometheus/queries.active
+storage/prometheus/chunks_head/
+storage/prometheus/wal/
+storage/prometheus/*/
+storage/prometheus/lock
+storage/prometheus/queries.active
 
 # Loki data - ignore all chunks, WAL, and database files
 storage/loki/chunks/
