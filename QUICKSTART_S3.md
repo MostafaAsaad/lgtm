@@ -146,3 +146,4 @@ docker logs loki
 - [ ] Thanos UI accessible: `http://localhost/thanos`
 - [ ] S3 bucket contains data (check AWS Console)
 
+
