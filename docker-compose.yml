@@ -33,8 +33,9 @@ services:
       - '--storage.tsdb.path=/prometheus'
       - '--web.console.libraries=/etc/prometheus/console_libraries'
       - '--web.console.templates=/etc/prometheus/consoles'
-      # Retention removed - Thanos handles long-term storage
-      # - '--storage.tsdb.retention.time=30d'
+      # Retention set to 3x block duration (required for block creation)
+      # For 15m blocks: 45m retention, For 2h blocks: 6h retention
+      - '--storage.tsdb.retention.time=45m'
       # Temporarily set to 15m for testing - change back to 2h for production
       - '--storage.tsdb.min-block-duration=15m'
       - '--storage.tsdb.max-block-duration=15m'
