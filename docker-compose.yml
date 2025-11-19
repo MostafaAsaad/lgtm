@@ -17,6 +17,7 @@ services:
       - grafana
       - loki
       - thanos-query
+      - alertmanager
 
   prometheus:
     image: prom/prometheus:v2.48.0
@@ -27,6 +28,7 @@ services:
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
       - ./prometheus/targets-telegraf.json:/etc/prometheus/targets-telegraf.json:ro
       - ./prometheus/targets-node-exporter.json:/etc/prometheus/targets-node-exporter.json:ro
+      - ./prometheus/alerts:/etc/prometheus/alerts:ro
       - prometheus-data:/prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
@@ -170,6 +172,22 @@ services:
       - prometheus
       - loki
 
+  # Alertmanager - handles alert notifications
+  alertmanager:
+    image: prom/alertmanager:v0.27.0
+    container_name: alertmanager
+    restart: unless-stopped
+    volumes:
+      - ./alertmanager/alertmanager.yml:/etc/alertmanager/alertmanager.yml:ro
+      - ./alertmanager/templates:/etc/alertmanager/templates:ro
+      - ./storage/alertmanager:/alertmanager
+    command:
+      - '--config.file=/etc/alertmanager/alertmanager.yml'
+      - '--storage.path=/alertmanager'
+    networks:
+      - monitoring
+    depends_on:
+      - prometheus
 
 networks:
   monitoring:

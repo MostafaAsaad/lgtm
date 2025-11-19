@@ -1,0 +1,22 @@
+groups:
+  - name: memory_alerts
+    interval: 30s
+    rules:
+      - alert: HighMemoryUsage
+        expr: mem_used_percent{job="telegraf"} > 80
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High memory usage on {{ $labels.instance }}"
+          description: "Memory usage is above 80% (current: {{ $value }}%) on server {{ $labels.server_name }}"
+
+      - alert: CriticalMemoryUsage
+        expr: mem_used_percent{job="telegraf"} > 90
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Critical memory usage on {{ $labels.instance }}"
+          description: "Memory usage is above 90% (current: {{ $value }}%) on server {{ $labels.server_name }}"
+

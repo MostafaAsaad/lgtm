@@ -1,0 +1,61 @@
+global:
+  resolve_timeout: 5m
+  # SMTP configuration - Office 365
+  smtp_smarthost: 'smtp.office365.com:587'
+  smtp_from: 'thanos@adeahub.co'
+  smtp_auth_username: 'thanos@adeahub.co'
+  smtp_auth_password: 'V*34094060ax1643ut'
+  smtp_require_tls: true
+  smtp_hello: 'localhost'
+
+# Templates for email formatting
+templates:
+  - '/etc/alertmanager/templates/*.tmpl'
+
+route:
+  group_by: ['alertname', 'cluster', 'service']
+  group_wait: 10s
+  group_interval: 10s
+  repeat_interval: 12h
+  receiver: 'email-notifications'
+  routes:
+    - match:
+        severity: critical
+      receiver: 'email-critical'
+      continue: true
+    - match:
+        severity: warning
+      receiver: 'email-warning'
+
+receivers:
+  - name: 'email-notifications'
+    email_configs:
+      - to: 'mostafa.el-sharkawy@adeahub.co'
+        headers:
+          Subject: '{{ .GroupLabels.alertname }} - {{ .GroupLabels.severity | toUpper }}'
+        html: '{{ template "email.default.html" . }}'
+        send_resolved: true
+
+  - name: 'email-critical'
+    email_configs:
+      - to: 'mostafa.el-sharkawy@adeahub.co'
+        headers:
+          Subject: '[CRITICAL] {{ .GroupLabels.alertname }}'
+        html: '{{ template "email.default.html" . }}'
+        send_resolved: true
+
+  - name: 'email-warning'
+    email_configs:
+      - to: 'mostafa.el-sharkawy@adeahub.co'
+        headers:
+          Subject: '[WARNING] {{ .GroupLabels.alertname }}'
+        html: '{{ template "email.default.html" . }}'
+        send_resolved: true
+
+inhibit_rules:
+  - source_match:
+      severity: 'critical'
+    target_match:
+      severity: 'warning'
+    equal: ['alertname', 'instance']
+

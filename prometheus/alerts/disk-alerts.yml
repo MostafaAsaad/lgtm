@@ -1,0 +1,22 @@
+groups:
+  - name: disk_alerts
+    interval: 30s
+    rules:
+      - alert: HighDiskUsage
+        expr: disk_used_percent{job="telegraf"} > 80
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High disk usage on {{ $labels.instance }}"
+          description: "Disk usage is above 80% (current: {{ $value }}%) on path {{ $labels.path }} for server {{ $labels.server_name }}"
+
+      - alert: CriticalDiskUsage
+        expr: disk_used_percent{job="telegraf"} > 90
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Critical disk usage on {{ $labels.instance }}"
+          description: "Disk usage is above 90% (current: {{ $value }}%) on path {{ $labels.path }} for server {{ $labels.server_name }}"
+
