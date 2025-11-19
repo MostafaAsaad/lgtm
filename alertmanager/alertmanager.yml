@@ -1,10 +1,10 @@
 global:
   resolve_timeout: 5m
-  # SMTP configuration - Office 365
-  smtp_smarthost: 'smtp.office365.com:587'
-  smtp_from: 'thanos@adeahub.co'
-  smtp_auth_username: 'thanos@adeahub.co'
-  smtp_auth_password: 'V*34094060ax1643ut'
+  # SMTP configuration - Gmail
+  smtp_smarthost: 'smtp.gmail.com:587'
+  smtp_from: 'System Notification <mostafa.asaad1996@gmail.com>'
+  smtp_auth_username: 'mostafa.asaad1996@gmail.com'
+  smtp_auth_password: 'xgdcghnpfrldonkn'
   smtp_require_tls: true
   smtp_hello: 'localhost'
 
