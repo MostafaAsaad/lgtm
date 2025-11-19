@@ -6,6 +6,14 @@ datasources:
     uid: prometheus
     access: proxy
     url: http://nginx-proxy/prometheus
+    isDefault: false
+    editable: true
+
+  - name: Thanos Query
+    type: prometheus
+    uid: thanos-query
+    access: proxy
+    url: http://nginx-proxy/thanos
     isDefault: true
     editable: true
 
