@@ -4,6 +4,7 @@
     "labels": {
       "server_name": "prd-em-app1",
       "server_ip": "10.24.12.194",
+      "System": "EM",
       "environment": "prod"
     }
   },
@@ -12,6 +13,7 @@
     "labels": {
       "server_name": "prd-em-app2",
       "server_ip": "10.24.12.195",
+      "System": "EM",
       "environment": "prod"
     }
   }

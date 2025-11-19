@@ -4050,6 +4050,37 @@
       {
         "current": {
           "selected": false,
+          "text": "EM",
+          "value": "EM"
+        },
+        "hide": 0,
+        "label": "System",
+        "multi": false,
+        "name": "system",
+        "options": [
+          {
+            "selected": true,
+            "text": "EM",
+            "value": "EM"
+          },
+          {
+            "selected": false,
+            "text": "HP",
+            "value": "HP"
+          },
+          {
+            "selected": false,
+            "text": "OHC",
+            "value": "OHC"
+          }
+        ],
+        "query": "EM : EM, HP : HP, OHC : OHC",
+        "skipUrlSync": false,
+        "type": "custom"
+      },
+      {
+        "current": {
+          "selected": false,
           "text": "prd-hp-ai1",
           "value": "prd-hp-ai1"
         },
@@ -4068,7 +4099,7 @@
           "refId": "Prometheus-server_name-Variable-Query"
         },
         "refresh": 1,
-        "regex": "",
+        "regex": "/.*${system}.*/i",
         "skipUrlSync": false,
         "sort": 5,
         "tagValuesQuery": "",
