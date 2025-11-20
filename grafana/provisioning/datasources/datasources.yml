@@ -1,14 +1,15 @@
 apiVersion: 1
 
 datasources:
-  # Prometheus datasource - required for dashboard templates
-  - name: Prometheus
-    type: prometheus
-    uid: prometheus
-    access: proxy
-    url: http://nginx-proxy/prometheus
-    isDefault: false
-    editable: true
+  # Prometheus datasource commented out to avoid duplicate rules
+  # Use Thanos Query instead which aggregates Prometheus + S3
+  # - name: Prometheus
+  #   type: prometheus
+  #   uid: prometheus
+  #   access: proxy
+  #   url: http://nginx-proxy/prometheus
+  #   isDefault: false
+  #   editable: true
 
   - name: Thanos Query
     type: prometheus
