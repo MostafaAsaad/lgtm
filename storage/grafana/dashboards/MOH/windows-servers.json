@@ -110,7 +110,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "thanos-query"
         },
         "fieldConfig": {
           "defaults": {
@@ -800,7 +800,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "expr": "windows_os_info{job=~\"$job\"} * on(instance) group_right(product) windows_cs_hostname",
             "format": "table",
@@ -812,7 +812,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "editorMode": "code",
             "expr": "time()-windows_system_boot_time_timestamp{job=~\"$job\"}",
@@ -825,7 +825,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "expr": "windows_cs_logical_processors{job=~\"$job\"}-0",
             "format": "table",
@@ -837,7 +837,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "expr": "avg by (instance) (windows_cpu_core_frequency_mhz{job=~\"$job\"})",
             "format": "table",
@@ -849,7 +849,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "expr": "100-(avg by (instance) (irate(windows_cpu_time_total{job=~\"$job\",mode=\"idle\"}[2m])) * 100)",
             "format": "table",
@@ -861,7 +861,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "expr": "windows_cs_physical_memory_bytes{job=~\"$job\"}-0",
             "format": "table",
@@ -873,7 +873,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "expr": "100-100 * windows_os_physical_memory_free_bytes{job=~\"$job\"} / windows_cs_physical_memory_bytes{job=~\"$job\"}",
             "format": "table",
@@ -885,7 +885,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "expr": "1-(windows_logical_disk_free_bytes{job=~\"$job\",volume=~\"C:\"}/windows_logical_disk_size_bytes{job=~\"$job\",volume=~\"C:\"})",
             "format": "table",
@@ -897,7 +897,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "expr": "(sum(windows_logical_disk_size_bytes{volume!~\"Harddisk.*\"}) by (instance) - sum(windows_logical_disk_free_bytes{volume!~\"Harddisk.*\"}) by (instance)) / sum(windows_logical_disk_size_bytes{volume!~\"Harddisk.*\"}) by (instance) ",
             "format": "table",
@@ -909,7 +909,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "editorMode": "code",
             "expr": "windows_system_processes{job=~\"$job\"}",
@@ -922,7 +922,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "expr": "sum by (instance) (windows_service_state{job=~\"$job\",state=~\"running\"})",
             "format": "table",
@@ -946,7 +946,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "thanos-query"
         },
         "fieldConfig": {
           "defaults": {
@@ -1034,7 +1034,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "expr": "100-(avg by (instance) (irate(windows_cpu_time_total{job=~\"$job\",mode=\"idle\"}[2m])) * 100)",
             "hide": false,
@@ -1050,7 +1050,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "thanos-query"
         },
         "fieldConfig": {
           "defaults": {
@@ -1225,7 +1225,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "expr": "100.0-100 * windows_os_physical_memory_free_bytes{job=~\"$job\"} / windows_cs_physical_memory_bytes{job=~\"$job\"}",
             "instant": false,
@@ -1240,7 +1240,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "thanos-query"
         },
         "fieldConfig": {
           "defaults": {
@@ -1330,7 +1330,7 @@
             },
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "expr": "max by (instance) (irate(windows_net_bytes_sent_total{job=~\"$job\",nic!~'isatap.*|VPN.*'}[2m]))*8",
             "format": "time_series",
@@ -1362,7 +1362,7 @@
             },
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "expr": "-max by (instance) (irate(windows_net_bytes_received_total{job=~\"$job\",nic!~'isatap.*|VPN.*'}[2m]))*8",
             "format": "time_series",
@@ -1395,7 +1395,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "thanos-query"
         },
         "fieldConfig": {
           "defaults": {
@@ -1485,7 +1485,7 @@
             },
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "expr": "-max by (instance) (irate(windows_logical_disk_read_bytes_total[2m]))",
             "format": "time_series",
@@ -1517,7 +1517,7 @@
             },
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "expr": "max by (instance) (irate(windows_logical_disk_write_bytes_total[2m]))",
             "format": "time_series",
@@ -1550,7 +1550,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "thanos-query"
         },
         "fieldConfig": {
           "defaults": {
@@ -1640,7 +1640,7 @@
             },
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "expr": "-max by (instance) (irate(windows_logical_disk_reads_total[2m]))",
             "format": "time_series",
@@ -1672,7 +1672,7 @@
             },
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "expr": "max by (instance) (irate(windows_logical_disk_writes_total[2m]))",
             "format": "time_series",
@@ -1718,7 +1718,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "thanos-query"
         },
         "description": "",
         "fieldConfig": {
@@ -1782,7 +1782,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "editorMode": "code",
             "expr": "(time() - windows_system_boot_time_timestamp {instance=\"$instance\"})",
@@ -1798,7 +1798,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "thanos-query"
         },
         "description": "",
         "fieldConfig": {
@@ -1865,7 +1865,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "expr": "windows_cs_logical_processors{instance=~\"$instance\"}",
             "format": "time_series",
@@ -1882,7 +1882,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "thanos-query"
         },
         "description": "",
         "fieldConfig": {
@@ -1949,7 +1949,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "expr": "windows_cs_physical_memory_bytes{instance=\"$instance\"}",
             "format": "time_series",
@@ -1966,7 +1966,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "thanos-query"
         },
         "fieldConfig": {
           "defaults": {
@@ -2032,7 +2032,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "expr": "100-(windows_logical_disk_free_bytes{job=~\"$job\",instance=~\"$instance\",volume !~\"HarddiskVolume.+\"} / windows_logical_disk_size_bytes{job=~\"$job\",instance=~\"$instance\",volume !~\"HarddiskVolume.+\"})*100",
             "instant": false,
@@ -2047,7 +2047,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "thanos-query"
         },
         "fieldConfig": {
           "defaults": {
@@ -2149,7 +2149,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "editorMode": "code",
             "expr": "windows_system_processes{job=~\"$job\",instance=~\"$instance\"}",
@@ -2165,7 +2165,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "thanos-query"
         },
         "fieldConfig": {
           "defaults": {
@@ -2232,7 +2232,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "expr": "100 - (avg by (instance) (irate(windows_cpu_time_total{mode=\"idle\", instance=~\"$instance.*\"}[$__interval])) * 100)",
             "format": "time_series",
@@ -2248,7 +2248,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "thanos-query"
         },
         "fieldConfig": {
           "defaults": {
@@ -2316,7 +2316,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "expr": "100-(windows_os_physical_memory_free_bytes{job=~\"$job\",instance=~\"$instance\"} / windows_cs_physical_memory_bytes{job=~\"$job\",instance=~\"$instance\"})*100",
             "instant": false,
@@ -2329,7 +2329,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "thanos-query"
         },
         "fieldConfig": {
           "defaults": {
@@ -2398,7 +2398,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "expr": "(sum(irate(windows_net_bytes_total{instance=\"$instance\"}[1m])) > 1)* 8",
             "format": "time_series",
@@ -2414,7 +2414,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "thanos-query"
         },
         "fieldConfig": {
           "defaults": {
@@ -2482,7 +2482,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "expr": "(sum(windows_logical_disk_size_bytes{volume!~\"Harddisk.*\", instance=\"$instance\"}) by (instance) - sum(windows_logical_disk_free_bytes{volume!~\"Harddisk.*\", instance=\"$instance\"}) by (instance)) / sum(windows_logical_disk_size_bytes{volume!~\"Harddisk.*\", instance=\"$instance\"}) by (instance) * 100",
             "instant": false,
@@ -2495,7 +2495,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "thanos-query"
         },
         "fieldConfig": {
           "defaults": {
@@ -2583,7 +2583,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "editorMode": "code",
             "expr": "100 - avg(irate(windows_cpu_time_total{job=~\"$job\",instance=~\"$instance\",mode=\"idle\"}[5m]))*100",
@@ -2600,7 +2600,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "thanos-query"
         },
         "fieldConfig": {
           "defaults": {
@@ -2810,7 +2810,7 @@
             },
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "editorMode": "code",
             "expr": "windows_cs_physical_memory_bytes{job=~\"$job\",instance=~\"$instance\"}",
@@ -2844,7 +2844,7 @@
             },
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "editorMode": "code",
             "expr": "windows_os_physical_memory_free_bytes{job=~\"$job\",instance=~\"$instance\"}",
@@ -2878,7 +2878,7 @@
             },
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "expr": "windows_os_virtual_memory_bytes{job=~\"$job\",instance=~\"$instance\"}",
             "format": "time_series",
@@ -2906,7 +2906,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "expr": "windows_os_virtual_memory_free_bytes{job=~\"$job\",instance=~\"$instance\"}",
             "format": "time_series",
@@ -2921,7 +2921,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "thanos-query"
         },
         "fieldConfig": {
           "defaults": {
@@ -3011,7 +3011,7 @@
             },
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "editorMode": "code",
             "expr": "sum by (process) (rate(windows_process_cpu_time_total{process !~\"Idle\",instance=~\"$instance\"}[$__rate_interval]))",
@@ -3046,7 +3046,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "thanos-query"
         },
         "description": "",
         "fieldConfig": {
@@ -3111,7 +3111,7 @@
             },
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "editorMode": "code",
             "expr": "windows_logical_disk_size_bytes{job=~\"$job\",instance=~\"$instance\",volume!~\"HarddiskVolume.+\"} - windows_logical_disk_free_bytes{job=~\"$job\",instance=~\"$instance\",volume!~\"HarddiskVolume.+\"}",
@@ -3145,7 +3145,7 @@
             },
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "editorMode": "code",
             "expr": "windows_logical_disk_size_bytes{job=~\"$job\",instance=~\"$instance\",volume!~\"HarddiskVolume.+\"}",
@@ -3180,7 +3180,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "thanos-query"
         },
         "fieldConfig": {
           "defaults": {
@@ -3271,7 +3271,7 @@
             },
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "editorMode": "code",
             "expr": "irate(windows_logical_disk_read_bytes_total{job=~\"$job\",instance=~\"$instance\",volume!~\"HarddiskVolume.+\"}[5m])\r\n",
@@ -3304,7 +3304,7 @@
             },
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "editorMode": "code",
             "expr": "irate(windows_logical_disk_write_bytes_total{job=~\"$job\",instance=~\"$instance\",volume!~\"HarddiskVolume.+\"}[5m])\r\n",
@@ -3338,7 +3338,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "thanos-query"
         },
         "fieldConfig": {
           "defaults": {
@@ -3429,7 +3429,7 @@
             },
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "editorMode": "code",
             "expr": "irate(windows_logical_disk_reads_total{job=~\"$job\",instance=~\"$instance\",volume!~\"HarddiskVolume.+\"}[5m])",
@@ -3462,7 +3462,7 @@
             },
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "editorMode": "code",
             "expr": "irate(windows_logical_disk_writes_total{job=~\"$job\",instance=~\"$instance\",volume!~\"HarddiskVolume.+\"}[5m])",
@@ -3496,7 +3496,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "thanos-query"
         },
         "fieldConfig": {
           "defaults": {
@@ -3587,7 +3587,7 @@
             },
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "editorMode": "code",
             "expr": "irate(windows_net_bytes_sent_total{job=~\"$job\",instance=~\"$instance\",nic!~'isatap.*|VPN.*'}[5m])*8>0\r\n",
@@ -3621,7 +3621,7 @@
             },
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "editorMode": "code",
             "expr": "irate(windows_net_bytes_received_total{job=~\"$job\",instance=~\"$instance\",nic!~'isatap.*|VPN.*'}[5m])*8\n",
@@ -3655,7 +3655,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "thanos-query"
         },
         "fieldConfig": {
           "defaults": {
@@ -3742,7 +3742,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "expr": "  irate(windows_net_bytes_total{instance=~\"$instance\"}[5m]) / windows_net_current_bandwidth_bytes{instance=~\"$instance\"} * 100",
             "legendFormat": "{{nic}}",
@@ -3755,7 +3755,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "thanos-query"
         },
         "fieldConfig": {
           "defaults": {
@@ -3843,7 +3843,7 @@
             },
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "expr": "irate(windows_net_packets_outbound_discarded_total{instance=~\"$instance\", nic!~\"isatap.+\"}[$__rate_interval]) + irate(windows_net_packets_outbound_errors_total{instance=~\"$instance\"}[$__rate_interval])",
             "format": "time_series",
@@ -3875,7 +3875,7 @@
             },
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "thanos-query"
             },
             "expr": "irate(windows_net_packets_received_discarded_total{instance=~\"$instance\", nic!~\"isatap.+\"}[$__rate_interval]) + irate(windows_net_packets_received_errors_total{instance=~\"$instance\"}[$__rate_interval])",
             "format": "time_series",
@@ -3919,7 +3919,7 @@
           "current": {},
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "thanos-query"
           },
           "definition": "label_values(windows_cs_hostname, job)",
           "includeAll": false,
@@ -3939,7 +3939,7 @@
           "current": {},
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "thanos-query"
           },
           "definition": "label_values(windows_cs_hostname{job=~\"$job\"}, hostname)",
           "includeAll": true,
@@ -3959,7 +3959,7 @@
           "current": {},
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "thanos-query"
           },
           "definition": "label_values(windows_cs_hostname{job=~\"$job\",hostname=~\"$hostname\"}, instance)",
           "includeAll": false,
@@ -3979,7 +3979,7 @@
           "current": {},
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "thanos-query"
           },
           "definition": "label_values(windows_cs_hostname{job=~\"$job\",instance=~\"$instance\"}, hostname)",
           "hide": 2,
