@@ -28,6 +28,7 @@ services:
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
       - ./prometheus/targets-telegraf.json:/etc/prometheus/targets-telegraf.json:ro
       - ./prometheus/targets-node-exporter.json:/etc/prometheus/targets-node-exporter.json:ro
+      - ./prometheus/targets-windows-exporter.json:/etc/prometheus/targets-windows-exporter.json:ro
       - ./prometheus/alerts:/etc/prometheus/alerts:ro
       - prometheus-data:/prometheus
     command:
