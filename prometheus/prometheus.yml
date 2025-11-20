@@ -32,3 +32,9 @@ scrape_configs:
           - '/etc/prometheus/targets-node-exporter.json'
         refresh_interval: 30s
 
+  - job_name: 'windows-exporter'
+    file_sd_configs:
+      - files:
+          - '/etc/prometheus/targets-windows-exporter.json'
+        refresh_interval: 30s
+
