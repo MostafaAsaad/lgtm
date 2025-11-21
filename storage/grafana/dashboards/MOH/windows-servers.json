@@ -3941,13 +3941,34 @@
             "type": "prometheus",
             "uid": "thanos-query"
           },
-          "definition": "label_values(windows_cs_hostname{job=~\"$job\"}, hostname)",
-          "includeAll": true,
+          "definition": "label_values(windows_cs_hostname{job=~\"$job\"}, server_name)",
+          "includeAll": false,
+          "label": "Server Name",
+          "multi": false,
+          "name": "server_name",
+          "options": [],
+          "query": {
+            "query": "label_values(windows_cs_hostname{job=~\"$job\"}, server_name)",
+            "refId": "Prometheus-server_name-Variable-Query"
+          },
+          "refresh": 1,
+          "regex": "",
+          "sort": 5,
+          "type": "query"
+        },
+        {
+          "current": {},
+          "datasource": {
+            "type": "prometheus",
+            "uid": "thanos-query"
+          },
+          "definition": "label_values(windows_cs_hostname{job=~\"$job\",server_name=~\"$server_name\"}, hostname)",
+          "includeAll": false,
           "label": "Hostname",
           "name": "hostname",
           "options": [],
           "query": {
-            "query": "label_values(windows_cs_hostname{job=~\"$job\"}, hostname)",
+            "query": "label_values(windows_cs_hostname{job=~\"$job\",server_name=~\"$server_name\"}, hostname)",
             "refId": "Prometheus-hostname-Variable-Query"
           },
           "refresh": 1,
@@ -3961,13 +3982,13 @@
             "type": "prometheus",
             "uid": "thanos-query"
           },
-          "definition": "label_values(windows_cs_hostname{job=~\"$job\",hostname=~\"$hostname\"}, instance)",
+          "definition": "label_values(windows_cs_hostname{job=~\"$job\",server_name=~\"$server_name\"}, instance)",
           "includeAll": false,
-          "label": "instance",
+          "label": "Instance",
           "name": "instance",
           "options": [],
           "query": {
-            "query": "label_values(windows_cs_hostname{job=~\"$job\",hostname=~\"$hostname\"}, instance)",
+            "query": "label_values(windows_cs_hostname{job=~\"$job\",server_name=~\"$server_name\"}, instance)",
             "refId": "Prometheus-instance-Variable-Query"
           },
           "refresh": 1,
@@ -4015,7 +4036,7 @@
       ]
     },
     "timezone": "",
-    "title": "Windows Server Status Dashboard - Prometheus",
+    "title": "Windows Servers",
     "uid": "-gjIslqnz",
     "version": 53,
     "weekStart": "",
