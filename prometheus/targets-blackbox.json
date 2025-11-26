@@ -1,0 +1,26 @@
+[
+  {
+    "targets": ["10.24.12.195:777"],
+    "labels": {
+      "job": "tcp_probe",
+      "server_name": "server-195",
+      "server_ip": "10.24.12.195",
+      "port": "777",
+      "environment": "production",
+      "description": "TCP Port 777 Monitoring"
+    }
+  },
+  {
+    "targets": ["http://10.24.12.194:7777/HIS/eSM/jsp/login.jsp"],
+    "labels": {
+      "job": "http_probe",
+      "server_name": "server-194",
+      "server_ip": "10.24.12.194",
+      "port": "7777",
+      "environment": "production",
+      "application": "HIS",
+      "description": "HIS Login Page Monitoring"
+    }
+  }
+]
+

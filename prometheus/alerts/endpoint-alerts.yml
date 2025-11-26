@@ -1,0 +1,59 @@
+groups:
+  - name: endpoint_monitoring
+    interval: 30s
+    rules:
+      # Alert when TCP port is down
+      - alert: TCPPortDown
+        expr: probe_success{job="tcp_probe"} == 0
+        for: 2m
+        labels:
+          severity: critical
+          category: endpoint
+        annotations:
+          summary: "TCP Port {{ $labels.port }} is DOWN on {{ $labels.server_ip }}"
+          description: "TCP port {{ $labels.port }} on server {{ $labels.server_name }} ({{ $labels.server_ip }}) has been unreachable for more than 2 minutes.\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"
+          
+      # Alert when HTTP endpoint is down
+      - alert: HTTPEndpointDown
+        expr: probe_success{job="http_probe"} == 0
+        for: 2m
+        labels:
+          severity: critical
+          category: endpoint
+        annotations:
+          summary: "HTTP Endpoint DOWN: {{ $labels.instance }}"
+          description: "HTTP endpoint {{ $labels.instance }} ({{ $labels.description }}) has been unreachable for more than 2 minutes.\n  Application: {{ $labels.application }}\n  Server: {{ $labels.server_name }} ({{ $labels.server_ip }})\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"
+
+      # Alert when HTTP endpoint is slow (>3 seconds)
+      - alert: HTTPEndpointSlow
+        expr: probe_duration_seconds{job="http_probe"} > 3
+        for: 5m
+        labels:
+          severity: warning
+          category: endpoint
+        annotations:
+          summary: "HTTP Endpoint SLOW: {{ $labels.instance }}"
+          description: "HTTP endpoint {{ $labels.instance }} is responding slowly (>3 seconds) for more than 5 minutes.\n  Current duration: {{ $value }}s\n  Application: {{ $labels.application }}\n  Server: {{ $labels.server_name }}\n  LABELS: {{ $labels }}"
+
+      # Alert when HTTP returns wrong status code
+      - alert: HTTPStatusCodeError
+        expr: probe_http_status_code{job="http_probe"} >= 400
+        for: 2m
+        labels:
+          severity: warning
+          category: endpoint
+        annotations:
+          summary: "HTTP Error {{ $value }} on {{ $labels.instance }}"
+          description: "HTTP endpoint {{ $labels.instance }} is returning error status code {{ $value }} for more than 2 minutes.\n  Application: {{ $labels.application }}\n  Server: {{ $labels.server_name }}\n  LABELS: {{ $labels }}"
+
+      # Alert when SSL certificate will expire soon (if using HTTPS)
+      - alert: SSLCertificateExpiringSoon
+        expr: probe_ssl_earliest_cert_expiry{job="http_probe"} - time() < 86400 * 30
+        for: 1h
+        labels:
+          severity: warning
+          category: endpoint
+        annotations:
+          summary: "SSL Certificate expiring soon for {{ $labels.instance }}"
+          description: "SSL certificate for {{ $labels.instance }} will expire in less than 30 days.\n  Days remaining: {{ $value | humanizeDuration }}\n  LABELS: {{ $labels }}"
+

@@ -29,6 +29,7 @@ services:
       - ./prometheus/targets-telegraf.json:/etc/prometheus/targets-telegraf.json:ro
       - ./prometheus/targets-node-exporter.json:/etc/prometheus/targets-node-exporter.json:ro
       - ./prometheus/targets-windows-exporter.json:/etc/prometheus/targets-windows-exporter.json:ro
+      - ./prometheus/targets-blackbox.json:/etc/prometheus/targets-blackbox.json:ro
       - ./prometheus/alerts:/etc/prometheus/alerts:ro
       - prometheus-data:/prometheus
     command:
@@ -43,6 +44,8 @@ services:
       - '--storage.tsdb.min-block-duration=15m'
       - '--storage.tsdb.max-block-duration=15m'
       - '--web.enable-lifecycle'
+      - '--web.route-prefix=/'
+      - '--web.external-url=http://localhost/prometheus/'
     networks:
       - monitoring
 
@@ -190,6 +193,18 @@ services:
       - monitoring
     depends_on:
       - prometheus
+
+  # Blackbox Exporter - probes endpoints (HTTP, TCP, ICMP, etc.)
+  blackbox-exporter:
+    image: prom/blackbox-exporter:v0.24.0
+    container_name: blackbox-exporter
+    restart: unless-stopped
+    volumes:
+      - ./blackbox/blackbox.yml:/etc/blackbox_exporter/config.yml:ro
+    command:
+      - '--config.file=/etc/blackbox_exporter/config.yml'
+    networks:
+      - monitoring
 
 networks:
   monitoring:
