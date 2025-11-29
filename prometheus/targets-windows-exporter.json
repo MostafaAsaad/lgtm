@@ -7,6 +7,14 @@
       "os": "windows",
       "environment": "production"
     }
+  },
+  {
+    "targets": ["10.24.12.209:9182"],
+    "labels": {
+      "server_name": "prd-em-int1",
+      "server_ip": "10.24.12.209",
+      "os": "windows",
+      "environment": "production"
+    }
   }
 ]
-
