@@ -236,3 +236,4 @@ Add Thanos Query as a Prometheus datasource in Grafana:
 
 
 
+
