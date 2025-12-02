@@ -38,47 +38,21 @@ scrape_configs:
           - '/etc/prometheus/targets-windows-exporter.json'
         refresh_interval: 30s
 
-  # Blackbox Exporter - TCP Port Monitoring
-  - job_name: 'blackbox-tcp'
-    scrape_interval: 5m
-    scrape_timeout: 30s
+  # Blackbox Exporter - SSH Monitoring
+  - job_name: 'blackbox-ssh'
+    scrape_interval: 1m
+    scrape_timeout: 10s
     metrics_path: /probe
     params:
-      module: [tcp_connect]
+      module: [ssh_banner]
     file_sd_configs:
       - files:
           - '/etc/prometheus/targets-blackbox.json'
         refresh_interval: 30s
     relabel_configs:
-      # Only process targets with job=tcp_probe
+      # Only process targets with job=ssh_probe
       - source_labels: [job]
-        regex: tcp_probe
-        action: keep
-      # Use target address as __param_target
-      - source_labels: [__address__]
-        target_label: __param_target
-      # Set blackbox exporter as the actual target
-      - target_label: __address__
-        replacement: blackbox-exporter:9115
-      # Keep original target as instance label
-      - source_labels: [__param_target]
-        target_label: instance
-
-  # Blackbox Exporter - HTTP/HTTPS Monitoring
-  - job_name: 'blackbox-http'
-    scrape_interval: 5m
-    scrape_timeout: 30s
-    metrics_path: /probe
-    params:
-      module: [http_2xx]
-    file_sd_configs:
-      - files:
-          - '/etc/prometheus/targets-blackbox.json'
-        refresh_interval: 30s
-    relabel_configs:
-      # Only process targets with job=http_probe
-      - source_labels: [job]
-        regex: http_probe
+        regex: ssh_probe
         action: keep
       # Use target address as __param_target
       - source_labels: [__address__]

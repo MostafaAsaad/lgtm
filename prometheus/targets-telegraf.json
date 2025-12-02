@@ -1,82 +1,111 @@
 [
   {
-    "targets": ["10.24.12.194:9273"],
+    "targets": ["10.110.8.140:9273"],
     "labels": {
-      "server_name": "prd-em-app1",
-      "server_ip": "10.24.12.194",
+      "server_name": "prod-em-app1",
+      "server_ip": "10.110.8.140",
       "System": "EM",
+      "app": "App1",
       "environment": "prod"
     }
   },
   {
-    "targets": ["10.24.12.195:9273"],
+    "targets": ["10.110.8.141:9273"],
     "labels": {
-      "server_name": "prd-em-app2",
-      "server_ip": "10.24.12.195",
+      "server_name": "prod-em-app2",
+      "server_ip": "10.110.8.141",
       "System": "EM",
+      "app": "App2",
       "environment": "prod"
     }
   },
   {
-    "targets": ["10.24.12.198:9273"],
+    "targets": ["10.110.8.184:9273"],
     "labels": {
-      "server_name": "prd-ohc-rt3",
-      "server_ip": "10.24.12.198",
-      "System": "OHC",
+      "server_name": "prod-em-insight4u",
+      "server_ip": "10.110.8.184",
+      "System": "EM",
+      "app": "Insight4u",
       "environment": "prod"
     }
   },
   {
-    "targets": ["10.24.12.199:9273"],
+    "targets": ["10.110.8.142:9273"],
     "labels": {
-      "server_name": "prd-ohc-rt4",
-      "server_ip": "10.24.12.199",
-      "System": "OHC",
+      "server_name": "prod-em-appng",
+      "server_ip": "10.110.8.142",
+      "System": "EM",
+      "app": "App Server Ng",
       "environment": "prod"
     }
   },
   {
-    "targets": ["10.24.12.151:9273"],
+    "targets": ["10.110.8.143:9273"],
     "labels": {
-      "server_name": "prd-ohc-gw2",
-      "server_ip": "10.24.12.151",
-      "System": "OHC",
-      "environment": "prod"
-    }
-  },
-  {
-    "targets": ["10.24.12.134:9273"],
-    "labels": {
-      "server_name": "prd-hp-app4",
-      "server_ip": "10.24.12.134",
+      "server_name": "prod-hp-mobapp1",
+      "server_ip": "10.110.8.143",
       "System": "HP",
+      "app": "App Server 1",
       "environment": "prod"
     }
   },
   {
-    "targets": ["10.24.12.135:9273"],
+    "targets": ["10.110.8.144:9273"],
     "labels": {
-      "server_name": "prd-hp-app5",
-      "server_ip": "10.24.12.135",
+      "server_name": "prod-hp-mobapp2",
+      "server_ip": "10.110.8.144",
       "System": "HP",
+      "app": "App Server 2",
       "environment": "prod"
     }
   },
   {
-    "targets": ["10.24.12.140:9273"],
+    "targets": ["10.110.8.145:9273"],
     "labels": {
-      "server_name": "prd-hp-int2",
-      "server_ip": "10.24.12.140",
+      "server_name": "prod-hp-mobjob1",
+      "server_ip": "10.110.8.145",
       "System": "HP",
+      "app": "Job Server",
       "environment": "prod"
     }
   },
   {
-    "targets": ["10.24.12.145:9273"],
+    "targets": ["10.110.9.10:9273"],
     "labels": {
-      "server_name": "prd-hp-pp2",
-      "server_ip": "10.24.12.145",
+      "server_name": "prod-hp-mobmng1",
+      "server_ip": "10.110.9.10",
       "System": "HP",
+      "app": "MongoDB 1",
+      "environment": "prod"
+    }
+  },
+  {
+    "targets": ["10.110.9.11:9273"],
+    "labels": {
+      "server_name": "prod-hp-mobmng2",
+      "server_ip": "10.110.9.11",
+      "System": "HP",
+      "app": "MongoDB 2",
+      "environment": "prod"
+    }
+  },
+  {
+    "targets": ["10.110.8.146:9273"],
+    "labels": {
+      "server_name": "prod-hp-mobai1",
+      "server_ip": "10.110.8.146",
+      "System": "HP",
+      "app": "AI Server",
+      "environment": "prod"
+    }
+  },
+  {
+    "targets": ["10.110.8.147:9273"],
+    "labels": {
+      "server_name": "prod-hp-mon",
+      "server_ip": "10.110.8.147",
+      "System": "HP",
+      "app": "Monitoring",
       "environment": "prod"
     }
   }

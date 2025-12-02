@@ -36,3 +36,12 @@ modules:
     icmp:
       preferred_ip_protocol: "ip4"
 
+  # SSH probe - checks if SSH port is accessible
+  ssh_banner:
+    prober: tcp
+    timeout: 5s
+    tcp:
+      query_response:
+        - expect: "^SSH-2.0-"
+      preferred_ip_protocol: "ip4"
+
