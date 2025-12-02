@@ -1,0 +1,288 @@
+[
+  {
+    "targets": ["http://10.24.12.194:7777/HIS/eSM/jsp/login.jsp"],
+    "labels": {
+      "job": "http_probe",
+      "system": "EM",
+      "app": "EM APP",
+      "service": "HIS Login",
+      "service_name": "HIS Login Page",
+      "server_name": "em-app-server-1",
+      "server_ip": "10.24.12.194",
+      "port": "7777",
+      "environment": "production",
+      "description": "EM → EM APP → HIS Login Page"
+    }
+  },
+  {
+    "targets": ["http://example-em-app:8080/health"],
+    "labels": {
+      "job": "http_probe",
+      "system": "EM",
+      "app": "EM APP",
+      "service": "App Server 1",
+      "service_name": "EM Application Server 1",
+      "server_name": "em-app-server-1",
+      "server_ip": "10.24.12.210",
+      "port": "8080",
+      "environment": "production",
+      "description": "EM → EM APP → Application Server 1"
+    }
+  },
+  {
+    "targets": ["http://example-em-app2:8081/health"],
+    "labels": {
+      "job": "http_probe",
+      "system": "EM",
+      "app": "EM APP",
+      "service": "App Server 2",
+      "service_name": "EM Application Server 2",
+      "server_name": "em-app-server-2",
+      "server_ip": "10.24.12.211",
+      "port": "8081",
+      "environment": "production",
+      "description": "EM → EM APP → Application Server 2"
+    }
+  },
+  {
+    "targets": ["10.24.12.212:8080"],
+    "labels": {
+      "job": "tcp_probe",
+      "system": "EM",
+      "app": "EM APP",
+      "service": "App Server Port",
+      "service_name": "EM App Server Port Check",
+      "server_name": "em-app-server-3",
+      "server_ip": "10.24.12.212",
+      "port": "8080",
+      "environment": "production",
+      "description": "EM → EM APP → App Server TCP Port"
+    }
+  },
+  {
+    "targets": ["http://example-em-forms:9090/forms"],
+    "labels": {
+      "job": "http_probe",
+      "system": "EM",
+      "app": "Forms",
+      "service": "Forms Server 1",
+      "service_name": "EM Forms Server 1",
+      "server_name": "em-forms-server-1",
+      "server_ip": "10.24.12.220",
+      "port": "9090",
+      "environment": "production",
+      "description": "EM → Forms → Forms Server 1"
+    }
+  },
+  {
+    "targets": ["http://example-em-forms2:9091/forms"],
+    "labels": {
+      "job": "http_probe",
+      "system": "EM",
+      "app": "Forms",
+      "service": "Forms Server 2",
+      "service_name": "EM Forms Server 2",
+      "server_name": "em-forms-server-2",
+      "server_ip": "10.24.12.221",
+      "port": "9091",
+      "environment": "production",
+      "description": "EM → Forms → Forms Server 2"
+    }
+  },
+  {
+    "targets": ["10.24.12.222:9090"],
+    "labels": {
+      "job": "tcp_probe",
+      "system": "EM",
+      "app": "Forms",
+      "service": "Forms Port",
+      "service_name": "Forms Server Port Check",
+      "server_name": "em-forms-server-3",
+      "server_ip": "10.24.12.222",
+      "port": "9090",
+      "environment": "production",
+      "description": "EM → Forms → Forms TCP Port"
+    }
+  },
+  {
+    "targets": ["http://example-em-report:8888/reports"],
+    "labels": {
+      "job": "http_probe",
+      "system": "EM",
+      "app": "Report",
+      "service": "Report Server 1",
+      "service_name": "EM Report Server 1",
+      "server_name": "em-report-server-1",
+      "server_ip": "10.24.12.230",
+      "port": "8888",
+      "environment": "production",
+      "description": "EM → Report → Report Server 1"
+    }
+  },
+  {
+    "targets": ["http://example-em-report2:8889/reports"],
+    "labels": {
+      "job": "http_probe",
+      "system": "EM",
+      "app": "Report",
+      "service": "Report Server 2",
+      "service_name": "EM Report Server 2",
+      "server_name": "em-report-server-2",
+      "server_ip": "10.24.12.231",
+      "port": "8889",
+      "environment": "production",
+      "description": "EM → Report → Report Server 2"
+    }
+  },
+  {
+    "targets": ["10.24.12.232:8888"],
+    "labels": {
+      "job": "tcp_probe",
+      "system": "EM",
+      "app": "Report",
+      "service": "Report Port",
+      "service_name": "Report Server Port Check",
+      "server_name": "em-report-server-3",
+      "server_ip": "10.24.12.232",
+      "port": "8888",
+      "environment": "production",
+      "description": "EM → Report → Report TCP Port"
+    }
+  },
+  {
+    "targets": ["10.24.12.195:777"],
+    "labels": {
+      "job": "tcp_probe",
+      "system": "HP",
+      "app": "HP Core",
+      "service": "Database Port",
+      "service_name": "HP Core Database",
+      "server_name": "hp-db-server",
+      "server_ip": "10.24.12.195",
+      "port": "777",
+      "environment": "production",
+      "description": "HP → HP Core → Database Port 777"
+    }
+  },
+  {
+    "targets": ["http://example-hp-web:80"],
+    "labels": {
+      "job": "http_probe",
+      "system": "HP",
+      "app": "HP Core",
+      "service": "Web Portal",
+      "service_name": "HP Web Portal",
+      "server_name": "hp-web-server",
+      "server_ip": "10.24.12.201",
+      "port": "80",
+      "environment": "production",
+      "description": "HP → HP Core → Web Portal"
+    }
+  },
+  {
+    "targets": ["http://example-hp-api:8080/api/health"],
+    "labels": {
+      "job": "http_probe",
+      "system": "HP",
+      "app": "HP Core",
+      "service": "API Server",
+      "service_name": "HP Core API",
+      "server_name": "hp-api-server",
+      "server_ip": "10.24.12.240",
+      "port": "8080",
+      "environment": "production",
+      "description": "HP → HP Core → API Server"
+    }
+  },
+  {
+    "targets": ["http://example-hp-forms:9090/forms"],
+    "labels": {
+      "job": "http_probe",
+      "system": "HP",
+      "app": "HP Forms",
+      "service": "Forms Server",
+      "service_name": "HP Forms Application",
+      "server_name": "hp-forms-server",
+      "server_ip": "10.24.12.250",
+      "port": "9090",
+      "environment": "production",
+      "description": "HP → HP Forms → Forms Server"
+    }
+  },
+  {
+    "targets": ["10.24.12.251:9090"],
+    "labels": {
+      "job": "tcp_probe",
+      "system": "HP",
+      "app": "HP Forms",
+      "service": "Forms Port",
+      "service_name": "HP Forms Port Check",
+      "server_name": "hp-forms-server-2",
+      "server_ip": "10.24.12.251",
+      "port": "9090",
+      "environment": "production",
+      "description": "HP → HP Forms → Forms TCP Port"
+    }
+  },
+  {
+    "targets": ["http://example-hp-report:8888/reports"],
+    "labels": {
+      "job": "http_probe",
+      "system": "HP",
+      "app": "HP Reporting",
+      "service": "Report Server",
+      "service_name": "HP Report Server",
+      "server_name": "hp-report-server",
+      "server_ip": "10.24.12.260",
+      "port": "8888",
+      "environment": "production",
+      "description": "HP → HP Reporting → Report Server"
+    }
+  },
+  {
+    "targets": ["http://example-ohc-portal:8090/login"],
+    "labels": {
+      "job": "http_probe",
+      "system": "OHC",
+      "app": "OHC Portal",
+      "service": "Patient Portal",
+      "service_name": "OHC Patient Portal",
+      "server_name": "ohc-portal-server",
+      "server_ip": "10.24.12.202",
+      "port": "8090",
+      "environment": "production",
+      "description": "OHC → OHC Portal → Patient Portal"
+    }
+  },
+  {
+    "targets": ["10.24.12.203:3306"],
+    "labels": {
+      "job": "tcp_probe",
+      "system": "OHC",
+      "app": "OHC Database",
+      "service": "MySQL Port",
+      "service_name": "OHC MySQL Database",
+      "server_name": "ohc-db-server",
+      "server_ip": "10.24.12.203",
+      "port": "3306",
+      "environment": "production",
+      "description": "OHC → OHC Database → MySQL Port"
+    }
+  },
+  {
+    "targets": ["10.24.12.203:3306"],
+    "labels": {
+      "job": "tcp_probe",
+      "system": "EM",
+      "app": "Integtation Ismla.. ",
+      "service": "Integration Ismala. port Port",
+      "service_name": "Integration",
+      "server_name": "em-int-server",
+      "server_ip": "10.24.12.203",
+      "port": "3306",
+      "environment": "production",
+      "description": "Mostafa test"
+    }
+  }
+]
+
