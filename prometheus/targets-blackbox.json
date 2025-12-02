@@ -174,5 +174,37 @@
       "environment": "production",
       "description": "HP → Monitoring → SSH Access"
     }
+  },
+  {
+    "targets": ["10.110.8.140:7777"],
+    "labels": {
+      "site": "ONCO",
+      "job": "tcp_probe",
+      "system": "EM",
+      "app": "App1",
+      "service": "Application Port",
+      "service_name": "EM Application Port 7777",
+      "server_name": "prod-em-app1",
+      "server_ip": "10.110.8.140",
+      "port": "7777",
+      "environment": "production",
+      "description": "EM → App1 → Application Port 7777"
+    }
+  },
+  {
+    "targets": ["10.110.8.141:7777"],
+    "labels": {
+      "site": "ONCO",
+      "job": "tcp_probe",
+      "system": "EM",
+      "app": "App2",
+      "service": "Application Port",
+      "service_name": "EM Application Port 7777",
+      "server_name": "prod-em-app2",
+      "server_ip": "10.110.8.141",
+      "port": "7777",
+      "environment": "production",
+      "description": "EM → App2 → Application Port 7777"
+    }
   }
 ]

@@ -64,3 +64,29 @@ scrape_configs:
       - source_labels: [__param_target]
         target_label: instance
 
+  # Blackbox Exporter - TCP Port Monitoring
+  - job_name: 'blackbox-tcp'
+    scrape_interval: 1m
+    scrape_timeout: 10s
+    metrics_path: /probe
+    params:
+      module: [tcp_connect]
+    file_sd_configs:
+      - files:
+          - '/etc/prometheus/targets-blackbox.json'
+        refresh_interval: 30s
+    relabel_configs:
+      # Only process targets with job=tcp_probe
+      - source_labels: [job]
+        regex: tcp_probe
+        action: keep
+      # Use target address as __param_target
+      - source_labels: [__address__]
+        target_label: __param_target
+      # Set blackbox exporter as the actual target
+      - target_label: __address__
+        replacement: blackbox-exporter:9115
+      # Keep original target as instance label
+      - source_labels: [__param_target]
+        target_label: instance
+
