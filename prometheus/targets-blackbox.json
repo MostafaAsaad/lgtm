@@ -268,6 +268,21 @@
       "environment": "production",
       "description": "OHC → OHC Database → MySQL Port"
     }
+  },
+  {
+    "targets": ["10.24.12.203:3306"],
+    "labels": {
+      "job": "tcp_probe",
+      "system": "EM",
+      "app": "Integtation Ismla.. ",
+      "service": "Integration Ismala. port Port",
+      "service_name": "Integration",
+      "server_name": "em-int-server",
+      "server_ip": "10.24.12.203",
+      "port": "3306",
+      "environment": "production",
+      "description": "Mostafa test"
+    }
   }
 ]
 
