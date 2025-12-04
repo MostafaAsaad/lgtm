@@ -1,57 +1,62 @@
 [
-    {
-      "targets": ["10.110.8.210:9273"],
-      "labels": {
-        "server_name": "prd-em-inte",
-        "server_ip": "10.110.8.210",
-        "System": "EM",
-        "app": "Integration Server - Interface Engine",
-        "os": "windows",
-        "environment": "production"
-      }
-    },
-    {
-      "targets": ["10.110.8.135:9273"],
-      "labels": {
-        "server_name": "prod-em-intzc",
-        "server_ip": "10.110.8.135",
-        "System": "EM",
-        "app": "Integration Server - ZATCA",
-        "os": "windows",
-        "environment": "production"
-      }
-    },
-    {
-      "targets": ["10.110.8.18:9273"],
-      "labels": {
-        "server_name": "prod-em-frm1",
-        "server_ip": "10.110.8.18",
-        "System": "EM",
-        "app": "Forms/Reports 1",
-        "os": "windows",
-        "environment": "production"
-      }
-    },
-    {
-      "targets": ["10.110.8.9:9273"],
-      "labels": {
-        "server_name": "prod-em-frm2",
-        "server_ip": "10.110.8.9",
-        "System": "EM",
-        "app": "Forms/Reports 2",
-        "os": "windows",
-        "environment": "production"
-      }
-    },
-    {
-      "targets": ["10.110.8.253:9273"],
-      "labels": {
-        "server_name": "prd-em-apiint1",
-        "server_ip": "10.110.8.253",
-        "System": "EM",
-        "app": "MediSpan API Integration",
-        "os": "windows",
-        "environment": "production"
-      }
+  {
+    "targets": ["10.110.8.210:9273"],
+    "labels": {
+      "site": "ONCO",
+      "server_name": "prd-em-inte",
+      "server_ip": "10.110.8.210",
+      "System": "EM",
+      "app": "Integration Server - Interface Engine",
+      "os": "windows",
+      "environment": "production"
     }
-  ]
+  },
+  {
+    "targets": ["10.110.8.135:9273"],
+    "labels": {
+      "site": "ONCO",
+      "server_name": "prod-em-intzc",
+      "server_ip": "10.110.8.135",
+      "System": "EM",
+      "app": "Integration Server - ZATCA",
+      "os": "windows",
+      "environment": "production"
+    }
+  },
+  {
+    "targets": ["10.110.8.18:9273"],
+    "labels": {
+      "site": "ONCO",
+      "server_name": "prod-em-frm1",
+      "server_ip": "10.110.8.18",
+      "System": "EM",
+      "app": "Forms/Reports 1",
+      "os": "windows",
+      "environment": "production"
+    }
+  },
+  {
+    "targets": ["10.110.8.9:9273"],
+    "labels": {
+      "site": "ONCO",
+      "server_name": "prod-em-frm2",
+      "server_ip": "10.110.8.9",
+      "System": "EM",
+      "app": "Forms/Reports 2",
+      "os": "windows",
+      "environment": "production"
+    }
+  },
+  {
+    "targets": ["10.110.8.253:9273"],
+    "labels": {
+      "site": "ONCO",
+      "server_name": "prd-em-apiint1",
+      "server_ip": "10.110.8.253",
+      "System": "EM",
+      "app": "MediSpan API Integration",
+      "os": "windows",
+      "environment": "production"
+    }
+  }
+]
