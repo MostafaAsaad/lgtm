@@ -1,13 +1,112 @@
 [
-  {
-    "targets": ["10.50.1.10:9273"],
-    "labels": {
-      "site": "ONCO",
-      "server_name": "onco-app1",
-      "server_ip": "10.50.1.10",
-      "System": "ONCO",
-      "environment": "prod"
+    {
+      "targets": ["10.110.8.140:9273"],
+      "labels": {
+        "server_name": "prod-em-app1",
+        "server_ip": "10.110.8.140",
+        "System": "EM",
+        "app": "App1",
+        "environment": "prod"
+      }
+    },
+    {
+      "targets": ["10.110.8.141:9273"],
+      "labels": {
+        "server_name": "prod-em-app2",
+        "server_ip": "10.110.8.141",
+        "System": "EM",
+        "app": "App2",
+        "environment": "prod"
+      }
+    },
+    {
+      "targets": ["10.110.8.184:9273"],
+      "labels": {
+        "server_name": "prod-em-insight4u",
+        "server_ip": "10.110.8.184",
+        "System": "EM",
+        "app": "Insight4u",
+        "environment": "prod"
+      }
+    },
+    {
+      "targets": ["10.110.8.142:9273"],
+      "labels": {
+        "server_name": "prod-em-appng",
+        "server_ip": "10.110.8.142",
+        "System": "EM",
+        "app": "App Server Ng",
+        "environment": "prod"
+      }
+    },
+    {
+      "targets": ["10.110.8.143:9273"],
+      "labels": {
+        "server_name": "prod-hp-mobapp1",
+        "server_ip": "10.110.8.143",
+        "System": "HP",
+        "app": "App Server 1",
+        "environment": "prod"
+      }
+    },
+    {
+      "targets": ["10.110.8.144:9273"],
+      "labels": {
+        "server_name": "prod-hp-mobapp2",
+        "server_ip": "10.110.8.144",
+        "System": "HP",
+        "app": "App Server 2",
+        "environment": "prod"
+      }
+    },
+    {
+      "targets": ["10.110.8.145:9273"],
+      "labels": {
+        "server_name": "prod-hp-mobjob1",
+        "server_ip": "10.110.8.145",
+        "System": "HP",
+        "app": "Job Server",
+        "environment": "prod"
+      }
+    },
+    {
+      "targets": ["10.110.9.10:9273"],
+      "labels": {
+        "server_name": "prod-hp-mobmng1",
+        "server_ip": "10.110.9.10",
+        "System": "HP",
+        "app": "MongoDB 1",
+        "environment": "prod"
+      }
+    },
+    {
+      "targets": ["10.110.9.11:9273"],
+      "labels": {
+        "server_name": "prod-hp-mobmng2",
+        "server_ip": "10.110.9.11",
+        "System": "HP",
+        "app": "MongoDB 2",
+        "environment": "prod"
+      }
+    },
+    {
+      "targets": ["10.110.8.146:9273"],
+      "labels": {
+        "server_name": "prod-hp-mobai1",
+        "server_ip": "10.110.8.146",
+        "System": "HP",
+        "app": "AI Server",
+        "environment": "prod"
+      }
+    },
+    {
+      "targets": ["10.110.8.147:9273"],
+      "labels": {
+        "server_name": "prod-hp-mon",
+        "server_ip": "10.110.8.147",
+        "System": "HP",
+        "app": "Monitoring",
+        "environment": "prod"
+      }
     }
-  }
-]
-
+  ]

@@ -1,19 +1,210 @@
 [
-  {
-    "targets": ["http://10.50.1.30:8080/health"],
-    "labels": {
-      "site": "ONCO",
-      "job": "http_probe",
-      "system": "ONCO",
-      "app": "ONCO App",
-      "service": "Health Check",
-      "service_name": "ONCO Application Health",
-      "server_name": "onco-app-server",
-      "server_ip": "10.50.1.30",
-      "port": "8080",
-      "environment": "production",
-      "description": "ONCO → App → Health Check"
+    {
+      "targets": ["10.110.8.140:22"],
+      "labels": {
+        "site": "ONCO",
+        "job": "ssh_probe",
+        "system": "EM",
+        "app": "App1",
+        "service": "SSH",
+        "service_name": "SSH Access",
+        "server_name": "prod-em-app1",
+        "server_ip": "10.110.8.140",
+        "port": "22",
+        "environment": "production",
+        "description": "EM → App1 → SSH Access"
+      }
+    },
+    {
+      "targets": ["10.110.8.141:22"],
+      "labels": {
+        "site": "ONCO",
+        "job": "ssh_probe",
+        "system": "EM",
+        "app": "App2",
+        "service": "SSH",
+        "service_name": "SSH Access",
+        "server_name": "prod-em-app2",
+        "server_ip": "10.110.8.141",
+        "port": "22",
+        "environment": "production",
+        "description": "EM → App2 → SSH Access"
+      }
+    },
+    {
+      "targets": ["10.110.8.184:22"],
+      "labels": {
+        "site": "ONCO",
+        "job": "ssh_probe",
+        "system": "EM",
+        "app": "Insight4u",
+        "service": "SSH",
+        "service_name": "SSH Access",
+        "server_name": "prod-em-insight4u",
+        "server_ip": "10.110.8.184",
+        "port": "22",
+        "environment": "production",
+        "description": "EM → Insight4u → SSH Access"
+      }
+    },
+    {
+      "targets": ["10.110.8.142:22"],
+      "labels": {
+        "site": "ONCO",
+        "job": "ssh_probe",
+        "system": "EM",
+        "app": "App Server Ng",
+        "service": "SSH",
+        "service_name": "SSH Access",
+        "server_name": "prod-em-appng",
+        "server_ip": "10.110.8.142",
+        "port": "22",
+        "environment": "production",
+        "description": "EM → App Server Ng → SSH Access"
+      }
+    },
+    {
+      "targets": ["10.110.8.143:22"],
+      "labels": {
+        "site": "ONCO",
+        "job": "ssh_probe",
+        "system": "HP",
+        "app": "App Server 1",
+        "service": "SSH",
+        "service_name": "SSH Access",
+        "server_name": "prod-hp-mobapp1",
+        "server_ip": "10.110.8.143",
+        "port": "22",
+        "environment": "production",
+        "description": "HP → App Server 1 → SSH Access"
+      }
+    },
+    {
+      "targets": ["10.110.8.144:22"],
+      "labels": {
+        "site": "ONCO",
+        "job": "ssh_probe",
+        "system": "HP",
+        "app": "App Server 2",
+        "service": "SSH",
+        "service_name": "SSH Access",
+        "server_name": "prod-hp-mobapp2",
+        "server_ip": "10.110.8.144",
+        "port": "22",
+        "environment": "production",
+        "description": "HP → App Server 2 → SSH Access"
+      }
+    },
+    {
+      "targets": ["10.110.8.145:22"],
+      "labels": {
+        "site": "ONCO",
+        "job": "ssh_probe",
+        "system": "HP",
+        "app": "Job Server",
+        "service": "SSH",
+        "service_name": "SSH Access",
+        "server_name": "prod-hp-mobjob1",
+        "server_ip": "10.110.8.145",
+        "port": "22",
+        "environment": "production",
+        "description": "HP → Job Server → SSH Access"
+      }
+    },
+    {
+      "targets": ["10.110.9.10:22"],
+      "labels": {
+        "site": "ONCO",
+        "job": "ssh_probe",
+        "system": "HP",
+        "app": "MongoDB 1",
+        "service": "SSH",
+        "service_name": "SSH Access",
+        "server_name": "prod-hp-mobmng1",
+        "server_ip": "10.110.9.10",
+        "port": "22",
+        "environment": "production",
+        "description": "HP → MongoDB 1 → SSH Access"
+      }
+    },
+    {
+      "targets": ["10.110.9.11:22"],
+      "labels": {
+        "site": "ONCO",
+        "job": "ssh_probe",
+        "system": "HP",
+        "app": "MongoDB 2",
+        "service": "SSH",
+        "service_name": "SSH Access",
+        "server_name": "prod-hp-mobmng2",
+        "server_ip": "10.110.9.11",
+        "port": "22",
+        "environment": "production",
+        "description": "HP → MongoDB 2 → SSH Access"
+      }
+    },
+    {
+      "targets": ["10.110.8.146:22"],
+      "labels": {
+        "site": "ONCO",
+        "job": "ssh_probe",
+        "system": "HP",
+        "app": "AI Server",
+        "service": "SSH",
+        "service_name": "SSH Access",
+        "server_name": "prod-hp-mobai1",
+        "server_ip": "10.110.8.146",
+        "port": "22",
+        "environment": "production",
+        "description": "HP → AI Server → SSH Access"
+      }
+    },
+    {
+      "targets": ["10.110.8.147:22"],
+      "labels": {
+        "site": "ONCO",
+        "job": "ssh_probe",
+        "system": "HP",
+        "app": "Monitoring",
+        "service": "SSH",
+        "service_name": "SSH Access",
+        "server_name": "prod-hp-mon",
+        "server_ip": "10.110.8.147",
+        "port": "22",
+        "environment": "production",
+        "description": "HP → Monitoring → SSH Access"
+      }
+    },
+    {
+      "targets": ["10.110.8.140:7777"],
+      "labels": {
+        "site": "ONCO",
+        "job": "tcp_probe",
+        "system": "EM",
+        "app": "App1",
+        "service": "Application Port",
+        "service_name": "EM Application Port 7777",
+        "server_name": "prod-em-app1",
+        "server_ip": "10.110.8.140",
+        "port": "7777",
+        "environment": "production",
+        "description": "EM → App1 → Application Port 7777"
+      }
+    },
+    {
+      "targets": ["10.110.8.141:7777"],
+      "labels": {
+        "site": "ONCO",
+        "job": "tcp_probe",
+        "system": "EM",
+        "app": "App2",
+        "service": "Application Port",
+        "service_name": "EM Application Port 7777",
+        "server_name": "prod-em-app2",
+        "server_ip": "10.110.8.141",
+        "port": "7777",
+        "environment": "production",
+        "description": "EM → App2 → Application Port 7777"
+      }
     }
-  }
-]
-
+  ]
