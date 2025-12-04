@@ -1,0 +1,14 @@
+﻿# AWS S3 Configuration
+# Replace these values with your actual AWS credentials
+
+AWS_ACCESS_KEY_ID=AKIAVLDYJGKOCGW3BNXP
+AWS_SECRET_ACCESS_KEY=Ew+MqQLs1JMN3/zJyDhBZSrDuZIoT0eczJKB69Br
+AWS_REGION=ap-south-1
+
+# S3 Endpoint (use s3.amazonaws.com for AWS, or your S3-compatible endpoint like MinIO)
+S3_ENDPOINT=s3.amazonaws.com
+
+# Single S3 Bucket for all observability data (Thanos metrics + Loki logs)
+S3_BUCKET=adeaobserv
+
+ACTIVE_SITE=MOH
