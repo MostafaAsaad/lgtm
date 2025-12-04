@@ -1,8 +1,9 @@
 name: monitor-stack
 
 # ===========================================
-# Site Configuration: Change ACTIVE_SITE in site.env
+# Site Configuration: Change ACTIVE_SITE in .env
 # Available sites: MOH, ONCO
+# To switch: edit .env then run: docker-compose up -d --force-recreate prometheus
 # ===========================================
 
 services:
@@ -28,13 +29,10 @@ services:
     image: prom/prometheus:v2.48.0
     container_name: prometheus
     restart: unless-stopped
-    env_file:
-      - site.env
     # Removed direct port exposure - access through Nginx only
     volumes:
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
       # Site-specific targets loaded from prometheus/sites/${ACTIVE_SITE}/
-      # To change site: edit ACTIVE_SITE in site.env and run: docker-compose --env-file site.env up -d
       - ./prometheus/sites/${ACTIVE_SITE:-MOH}/targets-telegraf.json:/etc/prometheus/targets-telegraf.json:ro
       - ./prometheus/sites/${ACTIVE_SITE:-MOH}/targets-node-exporter.json:/etc/prometheus/targets-node-exporter.json:ro
       - ./prometheus/sites/${ACTIVE_SITE:-MOH}/targets-windows-exporter.json:/etc/prometheus/targets-windows-exporter.json:ro
