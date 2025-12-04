@@ -1,0 +1,13 @@
+[
+  {
+    "targets": ["10.50.1.10:9273"],
+    "labels": {
+      "site": "ONCO",
+      "server_name": "onco-app1",
+      "server_ip": "10.50.1.10",
+      "System": "ONCO",
+      "environment": "prod"
+    }
+  }
+]
+

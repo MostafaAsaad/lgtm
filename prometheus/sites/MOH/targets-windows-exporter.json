@@ -1,0 +1,23 @@
+[
+  {
+    "targets": ["10.24.12.206:9182"],
+    "labels": {
+      "site": "MOH",
+      "server_name": "prd-em-frm1",
+      "server_ip": "10.24.12.206",
+      "os": "windows",
+      "environment": "production"
+    }
+  },
+  {
+    "targets": ["10.24.12.209:9182"],
+    "labels": {
+      "site": "MOH",
+      "server_name": "prd-em-int1",
+      "server_ip": "10.24.12.209",
+      "os": "windows",
+      "environment": "production"
+    }
+  }
+]
+

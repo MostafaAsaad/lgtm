@@ -1,0 +1,19 @@
+[
+  {
+    "targets": ["http://10.50.1.30:8080/health"],
+    "labels": {
+      "site": "ONCO",
+      "job": "http_probe",
+      "system": "ONCO",
+      "app": "ONCO App",
+      "service": "Health Check",
+      "service_name": "ONCO Application Health",
+      "server_name": "onco-app-server",
+      "server_ip": "10.50.1.30",
+      "port": "8080",
+      "environment": "production",
+      "description": "ONCO → App → Health Check"
+    }
+  }
+]
+

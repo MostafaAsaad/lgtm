@@ -1,0 +1,93 @@
+[
+  {
+    "targets": ["10.24.12.194:9273"],
+    "labels": {
+      "site": "MOH",
+      "server_name": "prd-em-app1",
+      "server_ip": "10.24.12.194",
+      "System": "EM",
+      "environment": "prod"
+    }
+  },
+  {
+    "targets": ["10.24.12.195:9273"],
+    "labels": {
+      "site": "MOH",
+      "server_name": "prd-em-app2",
+      "server_ip": "10.24.12.195",
+      "System": "EM",
+      "environment": "prod"
+    }
+  },
+  {
+    "targets": ["10.24.12.198:9273"],
+    "labels": {
+      "site": "MOH",
+      "server_name": "prd-ohc-rt3",
+      "server_ip": "10.24.12.198",
+      "System": "OHC",
+      "environment": "prod"
+    }
+  },
+  {
+    "targets": ["10.24.12.199:9273"],
+    "labels": {
+      "site": "MOH",
+      "server_name": "prd-ohc-rt4",
+      "server_ip": "10.24.12.199",
+      "System": "OHC",
+      "environment": "prod"
+    }
+  },
+  {
+    "targets": ["10.24.12.151:9273"],
+    "labels": {
+      "site": "MOH",
+      "server_name": "prd-ohc-gw2",
+      "server_ip": "10.24.12.151",
+      "System": "OHC",
+      "environment": "prod"
+    }
+  },
+  {
+    "targets": ["10.24.12.134:9273"],
+    "labels": {
+      "site": "MOH",
+      "server_name": "prd-hp-app4",
+      "server_ip": "10.24.12.134",
+      "System": "HP",
+      "environment": "prod"
+    }
+  },
+  {
+    "targets": ["10.24.12.135:9273"],
+    "labels": {
+      "site": "MOH",
+      "server_name": "prd-hp-app5",
+      "server_ip": "10.24.12.135",
+      "System": "HP",
+      "environment": "prod"
+    }
+  },
+  {
+    "targets": ["10.24.12.140:9273"],
+    "labels": {
+      "site": "MOH",
+      "server_name": "prd-hp-int2",
+      "server_ip": "10.24.12.140",
+      "System": "HP",
+      "environment": "prod"
+    }
+  },
+  {
+    "targets": ["10.24.12.145:9273"],
+    "labels": {
+      "site": "MOH",
+      "server_name": "prd-hp-pp2",
+      "server_ip": "10.24.12.145",
+      "System": "HP",
+      "environment": "prod"
+    }
+  }
+]
+
