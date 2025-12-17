@@ -1,11 +1,11 @@
 # Storage directories - ignore all data
 storage/
 
-# But keep Grafana dashboards (un-ignore)
+# But keep Grafana dashboards (un-ignore each level explicitly)
 !storage/grafana/
 !storage/grafana/dashboards/
-!storage/grafana/dashboards/**/*.json
-!storage/grafana/grafana.db
+!storage/grafana/dashboards/Infrastructure/
+!storage/grafana/dashboards/Infrastructure/*.json
 
 # Ignore Grafana database and other generated files
 storage/grafana/*.db-shm
