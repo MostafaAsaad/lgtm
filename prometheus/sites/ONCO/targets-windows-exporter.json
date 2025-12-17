@@ -1,6 +1,6 @@
 [
   {
-    "targets": ["10.110.8.210:9273"],
+    "targets": ["10.110.8.210:9182"],
     "labels": {
       "site": "ONCO",
       "server_name": "prd-em-inte",
@@ -12,7 +12,7 @@
     }
   },
   {
-    "targets": ["10.110.8.135:9273"],
+    "targets": ["10.110.8.135:9182"],
     "labels": {
       "site": "ONCO",
       "server_name": "prod-em-intzc",
@@ -24,7 +24,7 @@
     }
   },
   {
-    "targets": ["10.110.8.18:9273"],
+    "targets": ["10.110.8.18:9182"],
     "labels": {
       "site": "ONCO",
       "server_name": "prod-em-frm1",
@@ -36,7 +36,7 @@
     }
   },
   {
-    "targets": ["10.110.8.9:9273"],
+    "targets": ["10.110.8.9:9182"],
     "labels": {
       "site": "ONCO",
       "server_name": "prod-em-frm2",
@@ -48,7 +48,7 @@
     }
   },
   {
-    "targets": ["10.110.8.253:9273"],
+    "targets": ["10.110.8.253:9182"],
     "labels": {
       "site": "ONCO",
       "server_name": "prd-em-apiint1",
